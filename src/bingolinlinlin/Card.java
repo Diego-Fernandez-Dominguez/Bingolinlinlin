@@ -32,16 +32,21 @@ public class Card {
 		HashSet<Integer> numbers = new HashSet<Integer>();
 
 		int number;
-		
+
 		int contI;
 		int contJ;
 
 		int card[][] = new int[3][5];
 
-		while()
-
-			return card;
-		}
-
+		return card;
 	}
+
+	@Override
+	public String toString() {
+
+		String board = "";
+
+		return board;
+	}
+
 }
