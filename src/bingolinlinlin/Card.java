@@ -58,11 +58,11 @@ public class Card {
 
 		HashSet<Integer> numbers = new HashSet<>();
 
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 5; j++) {
+		for (int i = 0; i < card.length; i++) {
+			for (int j = 0; j < card[i].length; j++) {
 
 				do {
-					num = rand.nextInt(90) + 1;
+					num = rand.nextInt(1, 100);
 				} while (numbers.contains(num));
 
 				numbers.add(num);
@@ -100,7 +100,23 @@ public class Card {
 	public String getName() {
 		return name;
 	}
-
+	public boolean checkNumber(int num) {
+		boolean check = false;
+		int i= 0;
+		int j = 0;
+		while(!check && i<card.length) {
+			while(!check && j<card[i].length) {
+				if(this.card[i][j] == num) {
+					check = true;
+					this.card[i][j] = -1;
+				}
+				j++;
+			}
+			j = 0;
+			i++;
+		}
+		return check;
+	}
 	/**
 	 * Generates a hash code based on the card code.
 	 *
@@ -143,16 +159,20 @@ public class Card {
 		String cardText = "";
 
 		cardText += cardCode + ": " + name;
-
+		for (int i = 0; i < card.length; i++) {
+			cardText = i + "\t";
+		}
 		for (int i = 0; i < card.length; i++) {
 			cardText += "\n";
 
-			cardText += i + "  ";
+			cardText += i + "\t";
 
 			for (int j = 0; j < card[i].length; j++) {
-
-				cardText += card[i][j] + " ";
-
+				if(card[i][j] != -1) {
+					cardText += card[i][j] + "\t";
+				}else {
+					cardText += "X\t";
+				}
 			}
 		}
 
