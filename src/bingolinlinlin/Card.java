@@ -87,23 +87,9 @@ public class Card {
 	 *
 	 * @return The string representation of the bingo card.
 	 */
-	public String getCard() {
+	public int[][] getCard() {
 
-		String cardText = "";
-
-		for (int i = 0; i < card.length; i++) {
-			cardText += "\n";
-
-			cardText += i + "  ";
-
-			for (int j = 0; j < card[i].length; j++) {
-
-				cardText += card[i][j] + " ";
-
-			}
-		}
-
-		return cardText;
+		return card;
 	}
 
 	/**
@@ -158,7 +144,17 @@ public class Card {
 
 		cardText += cardCode + ": " + name;
 
-		cardText += getCard();
+		for (int i = 0; i < card.length; i++) {
+			cardText += "\n";
+
+			cardText += i + "  ";
+
+			for (int j = 0; j < card[i].length; j++) {
+
+				cardText += card[i][j] + " ";
+
+			}
+		}
 
 		return cardText;
 
