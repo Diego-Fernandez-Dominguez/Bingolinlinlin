@@ -28,19 +28,23 @@ public class Card {
 	/**
 	 * Constructs a Card with a given code and name.
 	 *
-	 * @param cardCode The unique identifier for the card.
-	 * @param name     The name associated with the card.
+	 * @param name The name associated with the card.
 	 */
-	public Card(int cardCode, String name) {
+	public Card(String name) {
 
-		if (cardCode > 0) {
-			this.cardCode = cardCode;
-		}
+		this.cardCode = cardCode++;
+
 		if (name != null && !name.isBlank()) {
 			this.name = name;
 		}
 
 		this.card = generateCard();
+	}
+
+	public Card(int cardCode) {
+		if (cardCode >= 0) {
+			this.cardCode = cardCode;
+		}
 	}
 
 	/**
@@ -100,13 +104,14 @@ public class Card {
 	public String getName() {
 		return name;
 	}
+
 	public boolean checkNumber(int num) {
 		boolean check = false;
-		int i= 0;
+		int i = 0;
 		int j = 0;
-		while(!check && i<card.length) {
-			while(!check && j<card[i].length) {
-				if(this.card[i][j] == num) {
+		while (!check && i < card.length) {
+			while (!check && j < card[i].length) {
+				if (this.card[i][j] == num) {
 					check = true;
 					this.card[i][j] = -1;
 				}
@@ -117,6 +122,7 @@ public class Card {
 		}
 		return check;
 	}
+
 	/**
 	 * Generates a hash code based on the card code.
 	 *
@@ -168,9 +174,9 @@ public class Card {
 			cardText += i + "\t";
 
 			for (int j = 0; j < card[i].length; j++) {
-				if(card[i][j] != -1) {
+				if (card[i][j] != -1) {
 					cardText += card[i][j] + "\t";
-				}else {
+				} else {
 					cardText += "X\t";
 				}
 			}
