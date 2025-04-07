@@ -14,7 +14,6 @@ public class Card {
 	 * Unique identifier for the card.
 	 */
 	private static int cardCode = 0;
-	
 	private int code = 0;
 
 	/**
@@ -164,28 +163,32 @@ public class Card {
 	@Override
 	public String toString() {
 
-		String cardText = "mecagoenlapurta";
+	    String cardText = "mecagoenlapurta\n";
 
-		cardText += this.code + ": " + this.name ;
-		for (int i = 0; i < card.length; i++) {
-			cardText = i + "\t";
-		}
-		for (int i = 0; i < card.length; i++) {
-			cardText += "\n";
+	    cardText += "Code " + this.code + ": " + this.name + "\n";
+	    
+	    for (int i = 0; i <= card[0].length; i++) {
+	        cardText += i + "\t";
+	    }
+	    
+	    cardText += "\n";
+	    
+	    for (int i = 0; i < card.length; i++) {
+	        cardText += i + "\t";
+	        
+	        for (int j = 0; j < card[i].length; j++) {
+	            if (card[i][j] != -1) {
+	                cardText += card[i][j] + "\t";
+	            } else {
+	                cardText += "\t";
+	            }
+	        }
+	        
+	        cardText += "\n";
+	    }
 
-			cardText += i + "\t";
-
-			for (int j = 0; j < card[i].length; j++) {
-				if (card[i][j] != -1) {
-					cardText += card[i][j] + "\t";
-				} else {
-					cardText += "\t";
-				}
-			}
-		}
-
-		return cardText;
-
+	    return cardText;
 	}
+
 
 }
