@@ -14,6 +14,7 @@ public class Card {
 	 * Unique identifier for the card.
 	 */
 	private static int cardCode = 0;
+	
 	private int code = 0;
 
 	/**
@@ -165,7 +166,7 @@ public class Card {
 
 		String cardText = "";
 
-		cardText += cardCode + ": " + name;
+		cardText += this.code + ": " + this.name ;
 		for (int i = 0; i < card.length; i++) {
 			cardText = i + "\t";
 		}
@@ -178,7 +179,7 @@ public class Card {
 				if (card[i][j] != -1) {
 					cardText += card[i][j] + "\t";
 				} else {
-					cardText += "X\t";
+					cardText += "\t";
 				}
 			}
 		}
