@@ -46,7 +46,7 @@ public class Bingolin {
 		Card example = null;
 		for (Card card : game) {
 
-			if (card.getCardCode() == id) {
+			if (card.getCode() == id) {
 				example = card;
 			}
 

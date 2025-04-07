@@ -84,8 +84,8 @@ public class Card {
 	 *
 	 * @return The card code.
 	 */
-	public int getCardCode() {
-		return cardCode;
+	public int getCode() {
+		return this.code;
 	}
 
 	/**
