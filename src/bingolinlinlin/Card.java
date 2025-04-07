@@ -164,7 +164,7 @@ public class Card {
 	@Override
 	public String toString() {
 
-		String cardText = "";
+		String cardText = "mecagoenlapurta";
 
 		cardText += this.code + ": " + this.name ;
 		for (int i = 0; i < card.length; i++) {
