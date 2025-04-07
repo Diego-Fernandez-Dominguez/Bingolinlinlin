@@ -13,7 +13,8 @@ public class Card {
 	/**
 	 * Unique identifier for the card.
 	 */
-	private int cardCode = 0;
+	private static int cardCode = 0;
+	private int code = 0;
 
 	/**
 	 * 3x5 matrix representing the bingo card with random numbers.
@@ -32,7 +33,7 @@ public class Card {
 	 */
 	public Card(String name) {
 
-		this.cardCode = cardCode++;
+		this.code = cardCode++;
 
 		if (name != null && !name.isBlank()) {
 			this.name = name;
@@ -43,7 +44,7 @@ public class Card {
 
 	public Card(int cardCode) {
 		if (cardCode >= 0) {
-			this.cardCode = cardCode;
+			this.code = cardCode;
 		}
 	}
 
@@ -147,7 +148,7 @@ public class Card {
 
 		Card card2 = (Card) obj;
 
-		if (cardCode == card2.cardCode) {
+		if (cardCode == card2.code) {
 			equal = true;
 		}
 
