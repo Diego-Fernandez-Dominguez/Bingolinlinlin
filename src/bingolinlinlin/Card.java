@@ -125,6 +125,45 @@ public class Card {
 		}
 		return check;
 	}
+	
+	/**
+	 * Comprueba si hay una linea completa de -1 en horizontal o vertical.
+	 *
+	 * @return true si existe una linea completa, false en caso contrario.
+	 */
+	public boolean checkLine() {
+	    boolean hasLine = false;
+
+	    // Comprobar líneas horizontales
+	    for (int i = 0; i < card.length; i++) {
+	        boolean fullRow = true;
+	        for (int j = 0; j < card[i].length; j++) {
+	            if (card[i][j] != -1) {
+	                fullRow = false;
+	            }
+	        }
+	        if (fullRow) {
+	            hasLine = true;
+	        }
+	    }
+
+	    // Comprobar líneas verticales
+	    for (int j = 0; j < card[0].length; j++) {
+	        boolean fullCol = true;
+	        for (int i = 0; i < card.length; i++) {
+	            if (card[i][j] != -1) {
+	                fullCol = false;
+	            }
+	        }
+	        if (fullCol) {
+	            hasLine = true;
+	        }
+	    }
+
+	    return hasLine;
+	}
+
+
 
 	/**
 	 * Generates a hash code based on the card code.
