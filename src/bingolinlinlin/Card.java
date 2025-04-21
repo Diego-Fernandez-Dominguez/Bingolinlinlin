@@ -32,12 +32,14 @@ public class Card {
 	 * @param name The name associated with the card.
 	 */
 	public Card(String name) {
-
-		this.code = cardCode++;
-
+		
 		if (name != null && !name.isBlank()) {
 			this.name = name;
 		}
+		
+		this.code = cardCode++;
+
+		
 
 		this.card = generateCard();
 	}
@@ -163,7 +165,7 @@ public class Card {
 	@Override
 	public String toString() {
 
-	    String cardText = "mecagoenlapurta\n";
+	    String cardText = "\n";
 
 	    cardText += "Code " + this.code + ": " + this.name + "\n";
 	    

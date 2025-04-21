@@ -34,9 +34,9 @@ public class BingoMain {
 
 			case 1 -> { // Show card
 
-				id = askCode();
+				//id = askCode();
 
-				bingolin.showCard(id);
+				bingolin.showAllCards();
 
 			}
 
@@ -49,7 +49,6 @@ public class BingoMain {
 			}
 
 			case 3 -> { // New card
-
 
 
 				Card card = createCard();
@@ -94,7 +93,7 @@ public class BingoMain {
 
 	public static void menu() {
 
-		System.out.println("\u001B[34m" + "1. Show card\r\n" + "\u001B[33m" + "2. Check card\r\n" + "\u001B[32m"
+		System.out.println("\u001B[34m" + "1. Show cards\r\n" + "\u001B[33m" + "2. Check card\r\n" + "\u001B[32m"
 
 				+ "3. New card\r\n" + "\u001B[31m" + "4. Give up" + "\u001B[0m");
 
@@ -104,13 +103,11 @@ public class BingoMain {
 
 	private static String askName() {
 
-		String name;
+		sc.nextLine();
 		
 		System.out.println("Introduce the user name");
 
-		name = sc.nextLine();
-
-		return name;
+		return sc.nextLine();
 
 	}
 
