@@ -23,7 +23,7 @@ public class BingoMain {
 			System.out.println("Introduce an option");
 
 			option = sc.nextInt();
-			
+
 			sc.nextLine();
 
 			switch (option) {
@@ -54,7 +54,7 @@ public class BingoMain {
 
 			case 4 -> { // Give up
 
-				System.out.println("Leaving game");
+				System.out.println("Start game");
 
 			}
 
@@ -66,10 +66,33 @@ public class BingoMain {
 
 			}
 
+		} while (option != 4);
+		do {
+			menu2();
+			switch (option) {
 
+			case 1 -> {
+				
+			}
+			case 2 ->{
+				
+			}
+			case 3 ->{
+				
+			}
+			case 4 ->{
+				
+			}
+			}
 		} while (option != 4);
 
 		sc.close();
+	}
+
+	public static void menu2() {
+		System.out.println("\u001B[34m" + "1. Show cards\r\n" + "\u001B[33m" + "2. Get Number\r\n" + "\u001B[32m"
+
+				+ "3. BINGO\r\n" + "\u001B[31m" + "4. End Game" + "\u001B[0m");
 
 	}
 

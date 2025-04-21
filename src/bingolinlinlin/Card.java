@@ -127,14 +127,14 @@ public class Card {
 	}
 	
 	/**
-	 * Comprueba si hay una linea completa de -1 en horizontal o vertical.
+	 * Checks if there is a complete line of -1 values either horizontally or vertically.
 	 *
-	 * @return true si existe una linea completa, false en caso contrario.
+	 * @return true if a complete line exists, false otherwise.
 	 */
 	public boolean checkLine() {
 	    boolean hasLine = false;
 
-	    // Comprobar líneas horizontales
+	    // Check horizontal lines
 	    for (int i = 0; i < card.length; i++) {
 	        boolean fullRow = true;
 	        for (int j = 0; j < card[i].length; j++) {
@@ -147,7 +147,7 @@ public class Card {
 	        }
 	    }
 
-	    // Comprobar líneas verticales
+	    // Check vertical lines
 	    for (int j = 0; j < card[0].length; j++) {
 	        boolean fullCol = true;
 	        for (int i = 0; i < card.length; i++) {
