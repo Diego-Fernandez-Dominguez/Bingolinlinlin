@@ -87,9 +87,11 @@ public class Bingolin {
 	public int generateNumber() {
 		int number;
 		Random rnd = new Random();
+		
 		do {
 			number = rnd.nextInt(1, 91);
 		} while (numbers.contains(number));
+		
 		numbers.add(number);
 		return number;
 	}

@@ -169,20 +169,20 @@ public class Card {
 
 	    cardText += "Code " + this.code + ": " + this.name + "\n";
 	    
-	    for (int i = 0; i <= card[0].length; i++) {
-	        cardText += i + "\t";
+	    for (int i = 1; i <= card[0].length; i++) {
+	        cardText += "\t"+i ;
 	    }
 	    
 	    cardText += "\n";
 	    
 	    for (int i = 0; i < card.length; i++) {
-	        cardText += i + "\t";
+	        cardText += (i+1) + "\t";
 	        
 	        for (int j = 0; j < card[i].length; j++) {
 	            if (card[i][j] != -1) {
 	                cardText += card[i][j] + "\t";
 	            } else {
-	                cardText += "\t";
+	                cardText += "X\t";
 	            }
 	        }
 	        

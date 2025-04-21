@@ -14,11 +14,7 @@ public class BingoMain {
 
 		int id;
 
-
-
 //		System.out.println("Hello world =^b");
-
-
 
 		do {
 
@@ -27,14 +23,14 @@ public class BingoMain {
 			System.out.println("Introduce an option");
 
 			option = sc.nextInt();
+			
+			sc.nextLine();
 
 			switch (option) {
 
-
-
 			case 1 -> { // Show card
 
-				//id = askCode();
+				// id = askCode();
 
 				bingolin.showAllCards();
 
@@ -49,7 +45,6 @@ public class BingoMain {
 			}
 
 			case 3 -> { // New card
-
 
 				Card card = createCard();
 
@@ -67,29 +62,16 @@ public class BingoMain {
 
 				System.out.println("Wrong option");
 
-
-
 			}
 
 			}
-
-
-
-			sc.nextLine();
-
 
 
 		} while (option != 4);
 
-
-
 		sc.close();
 
-
-
 	}
-
-
 
 	public static void menu() {
 
@@ -99,19 +81,13 @@ public class BingoMain {
 
 	}
 
-
-
 	private static String askName() {
 
-		sc.nextLine();
-		
 		System.out.println("Introduce the user name");
 
 		return sc.nextLine();
 
 	}
-
-
 
 	private static int askCode() {
 
@@ -127,8 +103,6 @@ public class BingoMain {
 
 	}
 
-
-
 	public static Card createCard() {
 
 		Card card = null;
@@ -140,7 +114,5 @@ public class BingoMain {
 		return card;
 
 	}
-
-
 
 }
