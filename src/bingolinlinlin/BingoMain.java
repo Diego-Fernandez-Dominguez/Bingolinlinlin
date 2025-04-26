@@ -12,9 +12,11 @@ public class BingoMain {
 
 		int option = -1;
 
+		int number;
+
 		int id;
 
-//		System.out.println("Hello world =^b");
+		boolean winner = false;
 
 		do {
 
@@ -52,13 +54,13 @@ public class BingoMain {
 
 			}
 
-			case 4 -> { // Give up
+			case 4 -> { // Start game
 
 				System.out.println("Start game");
 
 			}
 
-			default -> {
+			default -> { // Wrong option
 
 				System.out.println("Wrong option");
 
@@ -67,40 +69,71 @@ public class BingoMain {
 			}
 
 		} while (option != 4);
+
 		do {
+
 			menu2();
+
+			System.out.println("Introduce an option");
+
+			option = sc.nextInt();
+
+			sc.nextLine();
+
 			switch (option) {
 
 			case 1 -> {
-				
+
+				bingolin.showAllCards();
+
 			}
-			case 2 ->{
-				
+			case 2 -> {
+
+				number = bingolin.generateNumber();
+				System.out.println("The number is: " + number);
+				bingolin.checkCards(number);
+
 			}
-			case 3 ->{
-				
+			case 3 -> {
+
+				id = askCode();
+				Card card = bingolin.searchCard(id);
+
+				if (card == null) {
+					System.out.println("The card doesnt exists");
+				} else {
+					if (card.checkLine()) {
+						System.out.println("BINGOOOOOOOOOOO LIN LIN LINNNNN");
+						winner = true;
+					} else {
+						System.out.println("Theres no bingo lin lin lin :(");
+					}
+				}
+
 			}
-			case 4 ->{
-				
+			case 4 -> {
+
+				System.out.println("Bye Bye");
+
 			}
 			}
-		} while (option != 4);
+		} while (option != 4 && !winner);
 
 		sc.close();
-	}
-
-	public static void menu2() {
-		System.out.println("\u001B[34m" + "1. Show cards\r\n" + "\u001B[33m" + "2. Get Number\r\n" + "\u001B[32m"
-
-				+ "3. BINGO\r\n" + "\u001B[31m" + "4. End Game" + "\u001B[0m");
-
 	}
 
 	public static void menu() {
 
 		System.out.println("\u001B[34m" + "1. Show cards\r\n" + "\u001B[33m" + "2. Check card\r\n" + "\u001B[32m"
 
-				+ "3. New card\r\n" + "\u001B[31m" + "4. Give up" + "\u001B[0m");
+				+ "3. New card\r\n" + "\u001B[31m" + "4. Start Game" + "\u001B[0m");
+
+	}
+
+	public static void menu2() {
+		System.out.println("\u001B[34m" + "1. Show cards\r\n" + "\u001B[33m" + "2. Get Number\r\n" + "\u001B[32m"
+
+				+ "3. BINGO\r\n" + "\u001B[31m" + "4. End Game" + "\u001B[0m");
 
 	}
 

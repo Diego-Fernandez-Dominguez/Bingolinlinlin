@@ -41,6 +41,24 @@ public class Bingolin {
 	 * 
 	 * @param id ID from the card to be printed.
 	 */
+	public Card searchCard(int id) {
+
+		Card example = null;
+		for (Card card : game) {
+
+			if (card.getCode() == id) {
+				example = card;
+			}
+
+		}
+		return example;
+	}
+
+	/**
+	 * Function that prints a card with a specific id.
+	 * 
+	 * @param id ID from the card to be printed.
+	 */
 	public void showCard(int id) {
 
 		Card example = null;
@@ -87,11 +105,11 @@ public class Bingolin {
 	public int generateNumber() {
 		int number;
 		Random rnd = new Random();
-		
+
 		do {
 			number = rnd.nextInt(1, 91);
 		} while (numbers.contains(number));
-		
+
 		numbers.add(number);
 		return number;
 	}

@@ -13,7 +13,7 @@ public class Card {
 	/**
 	 * Unique identifier for the card.
 	 */
-	private static int cardCode = 0;
+	private static int cardCode = 1;
 	private int code = 0;
 
 	/**
@@ -32,14 +32,12 @@ public class Card {
 	 * @param name The name associated with the card.
 	 */
 	public Card(String name) {
-		
+
 		if (name != null && !name.isBlank()) {
 			this.name = name;
 		}
-		
-		this.code = cardCode++;
 
-		
+		this.code = cardCode++;
 
 		this.card = generateCard();
 	}
@@ -125,45 +123,44 @@ public class Card {
 		}
 		return check;
 	}
-	
+
 	/**
-	 * Checks if there is a complete line of -1 values either horizontally or vertically.
+	 * Checks if there is a complete line of -1 values either horizontally or
+	 * vertically.
 	 *
 	 * @return true if a complete line exists, false otherwise.
 	 */
 	public boolean checkLine() {
-	    boolean hasLine = false;
+		boolean hasLine = false;
 
-	    // Check horizontal lines
-	    for (int i = 0; i < card.length; i++) {
-	        boolean fullRow = true;
-	        for (int j = 0; j < card[i].length; j++) {
-	            if (card[i][j] != -1) {
-	                fullRow = false;
-	            }
-	        }
-	        if (fullRow) {
-	            hasLine = true;
-	        }
-	    }
+		// Check horizontal lines
+		for (int i = 0; i < card.length; i++) {
+			boolean fullRow = true;
+			for (int j = 0; j < card[i].length; j++) {
+				if (card[i][j] != -1) {
+					fullRow = false;
+				}
+			}
+			if (fullRow) {
+				hasLine = true;
+			}
+		}
 
-	    // Check vertical lines
-	    for (int j = 0; j < card[0].length; j++) {
-	        boolean fullCol = true;
-	        for (int i = 0; i < card.length; i++) {
-	            if (card[i][j] != -1) {
-	                fullCol = false;
-	            }
-	        }
-	        if (fullCol) {
-	            hasLine = true;
-	        }
-	    }
+		// Check vertical lines
+		for (int j = 0; j < card[0].length; j++) {
+			boolean fullCol = true;
+			for (int i = 0; i < card.length; i++) {
+				if (card[i][j] != -1) {
+					fullCol = false;
+				}
+			}
+			if (fullCol) {
+				hasLine = true;
+			}
+		}
 
-	    return hasLine;
+		return hasLine;
 	}
-
-
 
 	/**
 	 * Generates a hash code based on the card code.
@@ -204,32 +201,31 @@ public class Card {
 	@Override
 	public String toString() {
 
-	    String cardText = "\n";
+		String cardText = "\n";
 
-	    cardText += "Code " + this.code + ": " + this.name + "\n";
-	    
-	    for (int i = 1; i <= card[0].length; i++) {
-	        cardText += "\t"+i ;
-	    }
-	    
-	    cardText += "\n";
-	    
-	    for (int i = 0; i < card.length; i++) {
-	        cardText += (i+1) + "\t";
-	        
-	        for (int j = 0; j < card[i].length; j++) {
-	            if (card[i][j] != -1) {
-	                cardText += card[i][j] + "\t";
-	            } else {
-	                cardText += "X\t";
-	            }
-	        }
-	        
-	        cardText += "\n";
-	    }
+		cardText += "Code " + this.code + ": " + this.name + "\n";
 
-	    return cardText;
+		for (int i = 1; i <= card[0].length; i++) {
+			cardText += "\t" + i;
+		}
+
+		cardText += "\n";
+
+		for (int i = 0; i < card.length; i++) {
+			cardText += (i + 1) + "\t";
+
+			for (int j = 0; j < card[i].length; j++) {
+				if (card[i][j] != -1) {
+					cardText += card[i][j] + "\t";
+				} else {
+					cardText += "X\t";
+				}
+			}
+
+			cardText += "\n";
+		}
+
+		return cardText;
 	}
-
 
 }
