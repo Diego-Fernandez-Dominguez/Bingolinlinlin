@@ -163,6 +163,32 @@ public class Card {
 	}
 
 	/**
+	 * Checks if there is a complete card of -1 values
+	 * 
+	 * @return true if a complete card exists, false otherwise.
+	 */
+	public boolean checkBingo() {
+		
+		boolean win = true;
+
+		for (int i = 0; i < card.length; i++) {
+
+			for (int j = 0; j < card[i].length; j++) {
+
+				if (card[i][j] != -1) {
+					
+					win = false;
+					
+				}
+
+			}
+
+		}
+		
+		return win;
+	}
+
+	/**
 	 * Generates a hash code based on the card code.
 	 *
 	 * @return The hash code.

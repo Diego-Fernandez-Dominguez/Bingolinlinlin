@@ -82,42 +82,86 @@ public class BingoMain {
 
 			switch (option) {
 
-			case 1 -> {
+			case 1 -> { // Show all cards
 
 				bingolin.showAllCards();
 
 			}
-			case 2 -> {
+			
+			case 2 -> { // Generate a number
 
 				number = bingolin.generateNumber();
+				
 				System.out.println("The number is: " + number);
+				
 				bingolin.checkCards(number);
 
 			}
-			case 3 -> {
+			
+			case 3 -> { // Check line
 
 				id = askCode();
+				
 				Card card = bingolin.searchCard(id);
 
 				if (card == null) {
+					
 					System.out.println("The card doesnt exists");
+					
 				} else {
+					
 					if (card.checkLine()) {
-						System.out.println("BINGOOOOOOOOOOO LIN LIN LINNNNN");
-						winner = true;
+						
+						System.out.println("LINE");
+						
 					} else {
-						System.out.println("Theres no bingo lin lin lin :(");
+						
+						System.out.println("Theres no line :(");
+						
 					}
 				}
 
 			}
-			case 4 -> {
+			
+			case 4 -> { // Check Bingo
+
+				id = askCode();
+				
+				Card card = bingolin.searchCard(id);
+
+				if (card == null) {
+
+					System.out.println("The card doesnt exists");
+
+				} else {
+
+					if (card.checkBingo()) {
+
+						System.out.println("BINGOOOOOOOOOOO LIN LIN LINNNNN");
+
+						winner = true;
+
+					} else {
+
+						System.out.println("Theres no bingo lin lin lin :(");
+
+					}
+
+				}
+
+			}
+			
+			case 5 -> { // Finish the game
 
 				System.out.println("Bye Bye");
 
 			}
+			
+			default -> System.out.println("Wrong option"); // Wrong option
+			
 			}
-		} while (option != 4 && !winner);
+			
+		} while (option != 5 && !winner);
 
 		sc.close();
 	}
@@ -133,7 +177,7 @@ public class BingoMain {
 	public static void menu2() {
 		System.out.println("\u001B[34m" + "1. Show cards\r\n" + "\u001B[33m" + "2. Get Number\r\n" + "\u001B[32m"
 
-				+ "3. BINGO\r\n" + "\u001B[31m" + "4. End Game" + "\u001B[0m");
+				+ "3. Check Line\r\n" + "\u001B[31m" + "4. BINGO\r\n" + "\u001B[0m" + "5. End Game");
 
 	}
 

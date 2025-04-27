@@ -17,6 +17,12 @@ public class Bingolin {
 	 * Set with different all the numbers have appeared.
 	 */
 	private HashSet<Integer> numbers = new HashSet<>();
+	
+	
+
+	public HashSet<Integer> getNumbers() {
+		return numbers;
+	}
 
 	/**
 	 * Function that adds a Card to the set.
@@ -107,10 +113,17 @@ public class Bingolin {
 		Random rnd = new Random();
 
 		do {
-			number = rnd.nextInt(1, 91);
+			number = rnd.nextInt(1, 100);
 		} while (numbers.contains(number));
-
+		
 		numbers.add(number);
+		
+		if (numbers.size() == 99) {
+			
+			System.out.println("All numbers have been generated");
+			
+		}
+		
 		return number;
 	}
 
