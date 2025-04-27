@@ -17,8 +17,6 @@ public class Bingolin {
 	 * Set with different all the numbers have appeared.
 	 */
 	private HashSet<Integer> numbers = new HashSet<>();
-	
-	
 
 	public HashSet<Integer> getNumbers() {
 		return numbers;
@@ -109,21 +107,19 @@ public class Bingolin {
 	 * @return Number generated.
 	 */
 	public int generateNumber() {
-		int number;
+		int number = -1;
 		Random rnd = new Random();
 
-		do {
-			number = rnd.nextInt(1, 100);
-		} while (numbers.contains(number));
-		
-		numbers.add(number);
-		
-		if (numbers.size() == 99) {
-			
-			System.out.println("All numbers have been generated");
-			
+		if (numbers.size() != 99) {
+
+			do {
+				number = rnd.nextInt(1, 100);
+			} while (numbers.contains(number));
+
 		}
-		
+
+		numbers.add(number);
+
 		return number;
 	}
 

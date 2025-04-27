@@ -87,46 +87,54 @@ public class BingoMain {
 				bingolin.showAllCards();
 
 			}
-			
+
 			case 2 -> { // Generate a number
 
 				number = bingolin.generateNumber();
-				
-				System.out.println("The number is: " + number);
-				
+
+				if (number != -1) {
+
+					System.out.println("The number is: " + number);
+
+				} else {
+					
+					System.out.println("All numbers have been generated");
+					
+				}
+
 				bingolin.checkCards(number);
 
 			}
-			
+
 			case 3 -> { // Check line
 
 				id = askCode();
-				
+
 				Card card = bingolin.searchCard(id);
 
 				if (card == null) {
-					
+
 					System.out.println("The card doesnt exists");
-					
+
 				} else {
-					
+
 					if (card.checkLine()) {
-						
+
 						System.out.println("LINE");
-						
+
 					} else {
-						
+
 						System.out.println("Theres no line :(");
-						
+
 					}
 				}
 
 			}
-			
+
 			case 4 -> { // Check Bingo
 
 				id = askCode();
-				
+
 				Card card = bingolin.searchCard(id);
 
 				if (card == null) {
@@ -150,17 +158,17 @@ public class BingoMain {
 				}
 
 			}
-			
+
 			case 5 -> { // Finish the game
 
 				System.out.println("Bye Bye");
 
 			}
-			
+
 			default -> System.out.println("Wrong option"); // Wrong option
-			
+
 			}
-			
+
 		} while (option != 5 && !winner);
 
 		sc.close();
