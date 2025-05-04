@@ -110,7 +110,7 @@ public class Bingolin {
 		int number = -1;
 		Random rnd = new Random();
 
-		if (numbers.size() != 99) {
+		if (numbers.size() <= 99) {
 
 			do {
 				number = rnd.nextInt(1, 100);

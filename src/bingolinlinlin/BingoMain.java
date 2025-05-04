@@ -42,7 +42,7 @@ public class BingoMain {
 
 				id = askCode();
 
-				bingolin.checkCards(id);
+				bingolin.showCard(id);
 
 			}
 
